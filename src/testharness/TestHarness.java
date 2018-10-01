@@ -5,8 +5,6 @@ import alphacare.CreateAccount;
 import alphacare.CreateAccountController;
 import alphacare.CreateRecordController;
 import alphacare.LoginController;
-import alphacare.UserDirectory;
-import alphacare.User;
 import alphacare.Record;
 import alphacare.UpdateRecordController;
 import alphacare.ViewRecordController;
@@ -19,11 +17,12 @@ import java.util.ArrayList;
 public class TestHarness {
     
     public static void main(String[] args) {
-        testCreateRecordController();
-        testupdateRecordController();
+        testLoginController();
         testCreateAccountController();
         testViewRecordController();
-        testLoginController();
+        testCreateRecordController();
+        testupdateRecordController();
+        
     }
     
     /**
@@ -95,17 +94,17 @@ public class TestHarness {
 
         Record testRecord = cntl.updateRecord(testSickness, testSymptoms, testMiscInfo);
 
-        // check if the record was successfully created
+        // check if the record was successfully updated
         if (testRecord != null) {
-            System.out.println("Create Record Controller successfully created new record");
+            System.out.println("Update Record Controller successfully updated the record");
         } else {
-            System.out.println("Create Record Controller failed to created new record");
+            System.out.println("Update Record Controller failed to update the record");
         }
     }
 
     /**
-     * Tests out the ViewRecordController in the alphacare package Outputs if
-     * the controller properly viewed the record or not
+     * Tests out the ViewRecordController in the alphacare package
+     * Outputs if the controller properly viewed the record or not
      */
     public static void testViewRecordController() {
 
@@ -132,7 +131,7 @@ public class TestHarness {
     }
     
     /**
-     * tests the Login Controller.
+     * Tests the Login Controller.
      * Outputs appropriate results depending on if it authenticates correctly or not. 
      */
     public static void testLoginController(){
