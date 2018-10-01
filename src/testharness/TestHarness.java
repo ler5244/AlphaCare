@@ -19,6 +19,7 @@ public class TestHarness {
         testCreateRecordController();
         testupdateRecordController();
         testCreateAccountController();
+        testViewRecordController();
     }
     
     /**
