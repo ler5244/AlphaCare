@@ -7,9 +7,14 @@ import java.util.ArrayList;
  */
 public class UserDirectory {
     
-
-    private static ArrayList<User> userDirectory;
-    User exampleUser = new User("example","example");
+    private ArrayList<User> directory;
+    
+    public UserDirectory(){
+        ArrayList<User> newDirectory = new ArrayList<User>();
+        User exampleUser = new User("example","example");
+        newDirectory.add(exampleUser);
+        directory = newDirectory;
+    }
     
     /**
      * Checks to see if the provided String username and String password match
@@ -21,9 +26,9 @@ public class UserDirectory {
      * @return Returns boolean exist which represents if the user authentication
      * was a success.
      */
-    public static boolean contains(String username, String password){
+    public boolean contains(String username, String password){
         boolean exists = false;
-        for(User theUser : userDirectory){
+        for(User theUser : directory){
             if(theUser.getUsername().equals(username) &&
                     theUser.getPassword().equals(password)){
                 exists = true;
@@ -37,8 +42,8 @@ public class UserDirectory {
      * Adds the User newUser to the userDirectory 
      * @param newUser Is the new User object being added to the userDirectory
      */
-    public static void addUser(User newUser){
-        userDirectory.add(newUser);
+    public void addUser(User newUser){
+        directory.add(newUser);
     }
     
     /**
@@ -46,8 +51,8 @@ public class UserDirectory {
      * @param targetUser Is the new User object being removed from the
      * userDirectory 
      */
-    public static void removeUser(User targetUser){
-        userDirectory.remove(userDirectory.indexOf(targetUser));
+    public void removeUser(User targetUser){
+        directory.remove(directory.indexOf(targetUser));
     }
     
     

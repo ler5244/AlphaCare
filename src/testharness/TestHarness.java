@@ -4,6 +4,9 @@ package testharness;
 import alphacare.CreateAccount;
 import alphacare.CreateAccountController;
 import alphacare.CreateRecordController;
+import alphacare.LoginController;
+import alphacare.UserDirectory;
+import alphacare.User;
 import alphacare.Record;
 import alphacare.UpdateRecordController;
 import alphacare.ViewRecordController;
@@ -20,6 +23,7 @@ public class TestHarness {
         testupdateRecordController();
         testCreateAccountController();
         testViewRecordController();
+        testLoginController();
     }
     
     /**
@@ -126,8 +130,30 @@ public class TestHarness {
         }
 
     }
+    
+    /**
+     * tests the Login Controller.
+     * Outputs appropriate results depending on if it authenticates correctly or not. 
+     */
+    public static void testLoginController(){
+        LoginController testLoginController = new LoginController();
+        String goodUserName = "example";
+        String goodPassword = "example";
+        String badUserName = "";
+        String badPassword = "";
+        
+        if(testLoginController.authenticate(goodUserName, goodPassword) && !testLoginController.authenticate(badUserName, badPassword)){
+            System.out.println("LoginController successfully authenticated");
+        }
+        
+        else{
+                System.out.println("LoginController failed to authenticate");
+            }
+        }
+        
+        
+    }
 
 
 
     
-}
