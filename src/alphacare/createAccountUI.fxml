@@ -2,23 +2,24 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alphacare.CreateAccountUIController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alphacare.CreateAccountUIController">
    <children>
       <ImageView fitHeight="420.0" fitWidth="735.0" layoutX="-5.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@blue-gradient-background.png" />
          </image>
       </ImageView>
-      <Button layoutX="179.0" layoutY="265.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Create Account" textFill="WHITE" />
+      <Button fx:id="createAccountButton" layoutX="179.0" layoutY="265.0" mnemonicParsing="false" onAction="#handleCreateAccountButtonAction" style="-fx-background-color: black;" text="Create Account" textFill="WHITE" />
       <Button layoutX="502.0" layoutY="265.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Go Back " textFill="WHITE" />
-      <TextField layoutX="152.0" layoutY="150.0" />
-      <TextField layoutX="455.0" layoutY="150.0" />
+      <TextField fx:id="firstNameField" layoutX="152.0" layoutY="150.0" />
+      <TextField fx:id="lastNameField" layoutX="455.0" layoutY="150.0" />
       <Label layoutX="61.0" layoutY="192.0" text="Username" textFill="WHITE">
          <font>
             <Font size="17.0" />
@@ -31,8 +32,7 @@
          <font>
             <Font size="17.0" />
          </font></Label>
-      <TextField layoutX="455.0" layoutY="187.0" />
-      <TextField layoutX="152.0" layoutY="187.0" />
+      <TextField fx:id="usernameField" layoutX="152.0" layoutY="187.0" />
       <Label layoutX="59.0" layoutY="155.0" text="First Name" textFill="WHITE">
          <font>
             <Font size="17.0" />
@@ -42,5 +42,6 @@
             <Font size="26.0" />
          </font>
       </Label>
+      <PasswordField fx:id="passwordField" layoutX="455.0" layoutY="193.0" />
    </children>
 </AnchorPane>

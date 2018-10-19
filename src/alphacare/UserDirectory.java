@@ -7,11 +7,12 @@ import java.util.ArrayList;
  */
 public class UserDirectory {
     
-    private ArrayList<User> directory;
+    private ArrayList<User> directory = new ArrayList();
     
     public UserDirectory(){
+        directory = new ArrayList();
         ArrayList<User> newDirectory = new ArrayList<User>();
-        User exampleUser = new User("example","example");
+        User exampleUser = new User("example","example", "example", "example");
         newDirectory.add(exampleUser);
         directory = newDirectory;
     }
@@ -54,6 +55,12 @@ public class UserDirectory {
     public void removeUser(User targetUser){
         directory.remove(directory.indexOf(targetUser));
     }
-    
+    public ArrayList<User> getDirectory() {
+        return directory;
+    }
+
+    public void setDirectory(ArrayList<User> directory) {
+        this.directory = directory;
+    }
     
 }
