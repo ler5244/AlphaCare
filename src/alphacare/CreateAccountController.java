@@ -1,29 +1,40 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package alphacare;
+
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  *
- * @author ajp5922
+ * @author Laura
  */
 public class CreateAccountController {
-
-    /**
-     * Default constructor for the createAccountController class
-     */
-    public CreateAccountController() {
-
+    private Stage stage;
+  
+    public CreateAccountController(Stage theStage){
+       
+        stage = theStage;
+        setUpCreateAccountScene();
     }
 
-    /**
-     * Create a new record forCreateAccount the user
-     *
-     * @param passWord sets the password for the user
-     * @param userName sets the username for the user
-     */
-    public CreateAccount createAccount(String userName, String passWord) {
-        return new CreateAccount(userName, passWord);
+    public void setUpCreateAccountScene(){
+        Parent root;
+        Scene scene;
+        try{
+            root = FXMLLoader.load(getClass().getResource("createAccountUI.fxml"));
+            scene = new Scene(root);
+            stage.setTitle("Create Account");
+            stage.setScene(scene);
+            stage.show();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
-
 }
-
-
-

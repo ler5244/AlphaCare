@@ -21,11 +21,11 @@ public class AlphaCare extends Application {
     public void start(Stage stage) throws Exception {
         
         //i just added this so i could test create account
-        Parent root = FXMLLoader.load(getClass().getResource("createAccountUI.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("LoginUI.fxml"));
         
         Scene scene = new Scene(root);
         
-        stage.setTitle("Create Account");
+        stage.setTitle("Login or Create Account");
         stage.setScene(scene);
         stage.show();
     }
