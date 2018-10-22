@@ -17,6 +17,7 @@ import javafx.stage.Stage;
  */
 public class CreateAccountController {
     private Stage stage;
+    private static CreateAccountController theCreateAccountController;
   
     public CreateAccountController(Stage theStage){
        
@@ -24,6 +25,14 @@ public class CreateAccountController {
         setUpCreateAccountScene();
     }
 
+    public static CreateAccountController getCreateAccountController(Stage theStage){
+        if(theCreateAccountController == null){
+            theCreateAccountController = new CreateAccountController(theStage);
+        }
+        return theCreateAccountController;
+
+    }
+    
     public void setUpCreateAccountScene(){
         Parent root;
         Scene scene;

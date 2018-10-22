@@ -5,17 +5,24 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alphacare.LoginUIController">
+<AnchorPane id="AnchorPane" prefHeight="338.0" prefWidth="583.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alphacare.LoginUIController">
     <stylesheets>
         <URL value="@loginui.fxml.css" />
     </stylesheets>
    <children>
-      <Button fx:id="loginButton" layoutX="288.0" layoutY="272.0" mnemonicParsing="false" onAction="#authenticate" prefHeight="31.0" prefWidth="122.0" text="Login" />
-      <Button fx:id="createAccountButton" layoutX="101.0" layoutY="272.0" mnemonicParsing="false" onAction="#getCreateAccountCntl" text="Create Account" />
+      <ImageView fitHeight="338.0" fitWidth="608.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@blue-gradient-background.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="loginButton" layoutX="69.0" layoutY="267.0" mnemonicParsing="false" onAction="#authenticate" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: black;" text="Login" textFill="WHITE" />
+      <Button fx:id="createAccountButton" layoutX="474.0" layoutY="270.0" mnemonicParsing="false" onAction="#getCreateAccountCntl" style="-fx-background-color: black;" text="Create Account" textFill="WHITE" />
       <TextField fx:id="usernameField" layoutX="187.0" layoutY="131.0" />
       <Label layoutX="94.0" layoutY="136.0" text="Username:" />
       <Label layoutX="96.0" layoutY="196.0" text="Password:" />

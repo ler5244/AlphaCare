@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.layout.AnchorPane;
 
 
 public class LoginUIController {
@@ -56,8 +57,7 @@ public class LoginUIController {
         // create instance of create account controller to load
         // create account UI
         mainStage = (Stage) createAccountButton.getScene().getWindow();
-        
-        theCreateAccountController = new CreateAccountController(mainStage);
+        CreateAccountController.getCreateAccountController(mainStage);
     }
     
     
