@@ -26,6 +26,7 @@ public class CreateAccountUIController implements Initializable{
     private static NavigationController theNavigationController;  
     
     @FXML private Button createAccountButton;
+    @FXML private Button goBack;
     @FXML private TextField firstNameField;
     @FXML private TextField lastNameField;
     @FXML private TextField usernameField;
@@ -79,6 +80,14 @@ public class CreateAccountUIController implements Initializable{
     public void createNewAccount(String username, String password, String fName, String lName){
         User newUser = new User(username, password, fName, lName);
         saveAccountData(newUser);
+    }
+    
+     @FXML
+    public void getLoginCntl() {
+        // create instance of create account controller to load
+        // create account UI
+        Stage stage = (Stage) goBack.getScene().getWindow();
+       LoginController.getLoginController(stage);
     }
     
 }

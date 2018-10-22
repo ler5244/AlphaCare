@@ -28,8 +28,14 @@ public class CreateAccountController {
     public static CreateAccountController getCreateAccountController(Stage theStage){
         if(theCreateAccountController == null){
             theCreateAccountController = new CreateAccountController(theStage);
+            System.out.println("in the if");
+            return theCreateAccountController;
         }
-        return theCreateAccountController;
+        else{
+         theCreateAccountController.setUpCreateAccountScene();
+         System.out.println("in the out");
+         return theCreateAccountController;   
+        }
 
     }
     
