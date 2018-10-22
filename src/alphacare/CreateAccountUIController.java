@@ -23,7 +23,8 @@ import javafx.stage.Stage;
 public class CreateAccountUIController implements Initializable{
 
     private Stage stage;
-    private static NavigationController theNavigationController;  
+    private static NavigationController theNavigationController;
+    private LoginController theLoginController;
     
     @FXML private Button createAccountButton;
     @FXML private Button goBack;
@@ -87,7 +88,7 @@ public class CreateAccountUIController implements Initializable{
         // create instance of create account controller to load
         // create account UI
         Stage stage = (Stage) goBack.getScene().getWindow();
-       LoginController.getLoginController(stage);
+        theLoginController = new LoginController(stage);
     }
     
 }

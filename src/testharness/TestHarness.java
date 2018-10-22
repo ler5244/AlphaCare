@@ -1,14 +1,12 @@
 
 package testharness;
 
-import alphacare.CreateAccount;
 import alphacare.CreateAccountUIController;
 import alphacare.CreateRecordController;
 import alphacare.PersistentDataController;
 import alphacare.Record;
 import alphacare.UpdateRecordController;
 import alphacare.ViewRecordController;
-import alphacare.UserDirectory;
 import alphacare.User;
 import java.util.ArrayList;
 import javafx.stage.Stage;
