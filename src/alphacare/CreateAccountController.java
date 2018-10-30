@@ -11,29 +11,27 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Laura
- */
+
 public class CreateAccountController {
+
     private Stage stage;
-  
-    public CreateAccountController(Stage theStage){
-       
+
+    public CreateAccountController(Stage theStage) {
+
         stage = theStage;
         setUpCreateAccountScene();
     }
 
-    public void setUpCreateAccountScene(){
+    public void setUpCreateAccountScene() {
         Parent root;
         Scene scene;
-        try{
+        try {
             root = FXMLLoader.load(getClass().getResource("createAccountUI.fxml"));
             scene = new Scene(root);
             stage.setTitle("Create Account");
             stage.setScene(scene);
             stage.show();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
