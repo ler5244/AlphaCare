@@ -4,9 +4,11 @@ package alphacare;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.layout.AnchorPane;
 
 
 public class LoginUIController {
@@ -19,6 +21,7 @@ public class LoginUIController {
     @FXML private PasswordField passwordField;
     @FXML private Button createAccountButton;
     @FXML private Button loginButton;
+    @FXML private Label errorLabel;
     
     
     /**
@@ -45,6 +48,10 @@ public class LoginUIController {
             mainStage = (Stage) loginButton.getScene().getWindow();
             NavigationController.getNavigationController(mainStage);
         }
+        
+        else {
+            errorLabel.setText("Invalid credentials, please try again");
+        }
     }
     
     /*
@@ -56,8 +63,7 @@ public class LoginUIController {
         // create instance of create account controller to load
         // create account UI
         mainStage = (Stage) createAccountButton.getScene().getWindow();
-        
-        theCreateAccountController = new CreateAccountController(mainStage);
+        theCreateAccountController = new CreateAccountController(mainStage); 
     }
     
     
