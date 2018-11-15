@@ -16,6 +16,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -25,6 +26,7 @@ public class CreateAccountUIController implements Initializable{
     private Stage stage;
     private static NavigationController theNavigationController;
     private LoginController theLoginController;
+    private ArrayList<User> accountList;
     
     @FXML private Button createAccountButton;
     @FXML private Button goBack;
@@ -32,12 +34,16 @@ public class CreateAccountUIController implements Initializable{
     @FXML private TextField lastNameField;
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
-    private ArrayList<User> accountList;
+    @FXML private Label passwordStatus;
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
        accountList = PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().getDirectory();
+        passwordField.textProperty().addListener((observable, oldValue, newValue) -> {
+            this.updatePasswordStatus(newValue);
+        });
     }
     
     /**
@@ -89,6 +95,24 @@ public class CreateAccountUIController implements Initializable{
         // create account UI
         Stage stage = (Stage) goBack.getScene().getWindow();
         theLoginController = new LoginController(stage);
+    }
+    
+   
+    public void updatePasswordStatus(String password) {
+
+        if(password.length() == 0) {
+            passwordStatus.setText("");
+        }
+        else if(password.length() < 5) {
+            passwordStatus.setText("WEAK PASSWORD");
+        }
+        else if(password.length() < 9 && password.length() >= 5) {
+            passwordStatus.setText("MODERATE PASSWORD");
+        }
+        else {
+            passwordStatus.setText("STRONG PASSWORD");
+        }
+        
     }
     
 }
