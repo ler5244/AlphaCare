@@ -1,4 +1,3 @@
-
 package alphacare;
 
 import javafx.fxml.FXMLLoader;
@@ -7,26 +6,24 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
-public class LoginController {
+public class CreateRecordCntl {
 
     private Stage stage;
 
-    public LoginController(Stage theStage) {
+    public CreateRecordCntl(Stage theStage) {
 
         stage = theStage;
-        setUpCreateAccountScene();
+        setUpCreateRecordScene();
     }
     
-    /**
-    * Method to load the login scene
-    */
-    public void setUpCreateAccountScene() {
+    // Loads in the new scene for allowing a user to create an account
+    public void setUpCreateRecordScene() {
         Parent root;
         Scene scene;
         try {
-            root = FXMLLoader.load(getClass().getResource("LoginUI.fxml"));
+            root = FXMLLoader.load(getClass().getResource("CreateRecordUI.fxml"));
             scene = new Scene(root);
-            stage.setTitle("Create Account or Login");
+            stage.setTitle("Create Record");
             stage.setScene(scene);
             stage.show();
         } catch (Exception e) {

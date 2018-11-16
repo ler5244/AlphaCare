@@ -28,6 +28,12 @@ public class NavigationController implements Initializable {
         this.setUpNavigationScene();
         stage.show();
     }
+    
+    /**
+     * Gets the navigation controller object
+     * @param theStage
+     * @return theNavigationController
+     */
     public static NavigationController getNavigationController(Stage theStage){
         if(theNavigationController == null){
             theNavigationController = new NavigationController(theStage);
@@ -35,6 +41,9 @@ public class NavigationController implements Initializable {
         return theNavigationController;
 
     }
+    /**
+     * Sets up the main menu (navigation) scene
+     */
     @FXML public void setUpNavigationScene(){
         Parent root;
         Scene scene;
@@ -48,6 +57,12 @@ public class NavigationController implements Initializable {
             e.printStackTrace();
         }
     }
+    
+    /**
+     * Acts as the constructor for this class
+     * @param location
+     * @param resources 
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         

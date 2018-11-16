@@ -18,13 +18,20 @@ import javafx.stage.Stage;
 public class TestHarness {
     
     public static void main(String[] args) {
-        testCreateAccountController();
-        testViewRecordController();
-        testCreateRecordController();
-        testupdateRecordController();
         
     }
     
+    
+    
+    
+    /**
+     * Checks to see if the mediator successfully deleted the user. Returns true if it does.
+     * @param patients 
+     * @param doctors
+     * @param p1
+     * @return 
+     */
+
     /**
      * Tests out the CreateRecordController in the alphacare package
      * Outputs if the controller properly created the new record or not
@@ -36,9 +43,7 @@ public class TestHarness {
         // data for the new record
         String testSickness = "cold";
         
-        ArrayList<String> testSymptoms = new ArrayList();
-        testSymptoms.add("fever");
-        testSymptoms.add("congestion");
+        String testSymptoms = "Fever, Congestion";
         
         String testMiscInfo = "Having trouble sleeping";
         
@@ -59,6 +64,7 @@ public class TestHarness {
      * Tests out the CreateAccountController in the alphacare package Outputs if
      * the controller properly created the new account or not
      */
+    /*
     public static void testCreateAccountController() {
         Stage stage = new Stage();
         CreateAccountUIController cntl = new CreateAccountUIController();
@@ -82,8 +88,9 @@ public class TestHarness {
         } else {
             System.out.println("Create Account Controller failed to created a new account");
         }
-        */
+       
     }
+    */
 
     /**
      * Tests out the updateRecordController in the alphacare package Outputs if
@@ -95,9 +102,7 @@ public class TestHarness {
         //data for an updated record
         String testSickness = "hot";
 
-        ArrayList<String> testSymptoms = new ArrayList();
-        testSymptoms.add("fever");
-        testSymptoms.add("congestion");
+        String testSymptoms = "Fever, Congestion";
 
         String testMiscInfo = "Having trouble sleeping";
 
@@ -122,9 +127,7 @@ public class TestHarness {
         // data for the new record
         String testSickness = "cold";
 
-        ArrayList<String> testSymptoms = new ArrayList();
-        testSymptoms.add("fever");
-        testSymptoms.add("congestion");
+        String testSymptoms = "Fever, Congestion";
 
         String testMiscInfo = "Having trouble sleeping";
 
@@ -139,10 +142,8 @@ public class TestHarness {
 
     }
     
-    
+}       
         
-        
-    }
 
 
 

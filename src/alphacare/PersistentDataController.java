@@ -33,6 +33,10 @@ public class PersistentDataController {
         }
     }
     
+    /**
+     * Get the current persistent data controller
+     * @return thePersistentDataCntl
+     */
     public static PersistentDataController getPersistentDataCntl(){
         if(thePersistentDataCntl == null){
             thePersistentDataCntl = new PersistentDataController();
@@ -44,6 +48,9 @@ public class PersistentDataController {
         return thePersistentDataCollection;
     }
     
+    /**
+     * Writes the data to JSON format
+     */
     public void writeJSONDataModel(){
         try{
             Writer writer = new FileWriter(JSON_FILE_NAME);
@@ -55,6 +62,9 @@ public class PersistentDataController {
         }
     }
     
+    /**
+     * Reads in the JSON data
+     */
     public void readJSONDataModel(){
         Gson gson = new Gson();
         try{
