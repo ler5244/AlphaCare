@@ -30,7 +30,7 @@ public class CreateAccountUIController implements Initializable{
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
     @FXML private Label passwordStatus;
-    
+    private ArrayList<User> accountList;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

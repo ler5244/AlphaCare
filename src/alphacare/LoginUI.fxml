@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="338.0" prefWidth="583.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alphacare.LoginUIController">
+<AnchorPane id="AnchorPane" prefHeight="338.0" prefWidth="583.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alphacare.LoginUIController">
     <stylesheets>
         <URL value="@loginui.fxml.css" />
     </stylesheets>
@@ -23,7 +23,7 @@
       </ImageView>
       <Button fx:id="loginButton" layoutX="69.0" layoutY="267.0" mnemonicParsing="false" onAction="#authenticate" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: black;" text="Login" textFill="WHITE" />
       <Button fx:id="createAccountButton" layoutX="344.0" layoutY="267.0" mnemonicParsing="false" onAction="#getCreateAccountCntl" style="-fx-background-color: black;" text="Create Account" textFill="WHITE" />
-      <TextField fx:id="usernameField" layoutX="187.0" layoutY="131.0" promptText="WillSmithy123" />
+      <TextField fx:id="usernameField" layoutX="187.0" layoutY="131.0" />
       <Label layoutX="94.0" layoutY="136.0" text="Username:" />
       <Label layoutX="96.0" layoutY="196.0" text="Password:" />
       <Text layoutX="130.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create an Account or Login">
@@ -31,7 +31,7 @@
             <Font name="Arial" size="24.0" />
          </font>
       </Text>
-      <PasswordField fx:id="passwordField" layoutX="187.0" layoutY="191.0" promptText="p@ssword123" />
+      <PasswordField fx:id="passwordField" layoutX="187.0" layoutY="191.0" />
       <Label fx:id="errorLabel" layoutX="161.0" layoutY="236.0" prefHeight="21.0" prefWidth="244.0" textAlignment="CENTER" textFill="#eb1c1c" />
    </children>
 </AnchorPane>
