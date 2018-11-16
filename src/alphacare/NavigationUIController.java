@@ -14,9 +14,12 @@ import javafx.fxml.FXML;
  */
 public class NavigationUIController {
     
+    /**
+     * Exits the application
+     * @param event 
+     */
     @FXML
     public void logOut(ActionEvent event) {
-        System.out.println("EXITING");
         System.exit(0);
     }
     

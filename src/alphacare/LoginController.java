@@ -15,7 +15,10 @@ public class LoginController {
         stage = theStage;
         setUpCreateAccountScene();
     }
-
+    
+    /**
+    * Method to load the login scene
+    */
     public void setUpCreateAccountScene() {
         Parent root;
         Scene scene;

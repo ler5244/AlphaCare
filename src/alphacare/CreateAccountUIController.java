@@ -36,7 +36,9 @@ public class CreateAccountUIController implements Initializable{
     @FXML private PasswordField passwordField;
     @FXML private Label passwordStatus;
     
-
+    
+    // Method which acts as the constructor for this class
+    // This is called when the class is intitialized
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -89,7 +91,10 @@ public class CreateAccountUIController implements Initializable{
         saveAccountData(newUser);
     }
     
-     @FXML
+    /**
+     * An FXML method that gets the LoginController and sets up the login scene
+     */
+    @FXML
     public void getLoginCntl() {
         // create instance of create account controller to load
         // create account UI
@@ -98,6 +103,11 @@ public class CreateAccountUIController implements Initializable{
     }
     
    
+    /**
+     * Takes the user inputted password from CreateAccountUI and
+     * determines the strength of the password based on their input
+     * @param password 
+     */
     public void updatePasswordStatus(String password) {
 
         if(password.length() == 0) {

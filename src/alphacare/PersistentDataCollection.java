@@ -19,6 +19,10 @@ public class PersistentDataCollection {
         
     }
     
+    /**
+     * Returns the current user directory object
+     * @return theUserDirectory
+     */
     public UserDirectory getUserDirectory(){
         return theUserDirectory;
     }

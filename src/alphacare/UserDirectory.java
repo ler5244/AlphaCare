@@ -55,10 +55,19 @@ public class UserDirectory {
     public void removeUser(User targetUser){
         directory.remove(directory.indexOf(targetUser));
     }
+    
+    /**
+     * Get the current user directory
+     * @return directory
+     */
     public ArrayList<User> getDirectory() {
         return directory;
     }
-
+    
+    /**
+     * Takes in a new user directory and sets that as the current one
+     * @param directory 
+     */
     public void setDirectory(ArrayList<User> directory) {
         this.directory = directory;
     }

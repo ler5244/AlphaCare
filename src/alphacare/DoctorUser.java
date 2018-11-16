@@ -52,18 +52,34 @@ public class DoctorUser extends User {
         return password;
     }
 
+    /**
+     * Gets the String value of first name.
+     * @return Returns the String value of first name in this User object.
+    */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     * Sets the String value for first name in this User object.
+     * @param firstName Set as the new String value for the first name.
+    */
     public void setFirstName(String firstName) {
         super.setFirstName(firstName);
     }
 
+    /**
+     * Gets the String value of last name.
+     * @return Returns the String value of last name in this User object.
+    */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     * Sets the String value for last name in this User object.
+     * @param lastName Set as the new String value for the last name.
+     */
     public void setLastName(String lastName) {
         super.setLastName(lastName);
     }
