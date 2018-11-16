@@ -5,10 +5,6 @@
  */
 package alphacare;
 
-/**
- *
- * @author Laura
- */
 import javafx.event.ActionEvent;
 import java.net.URL;
 import java.util.ArrayList;
@@ -26,7 +22,6 @@ public class CreateAccountUIController implements Initializable{
     private Stage stage;
     private static NavigationController theNavigationController;
     private LoginController theLoginController;
-    private ArrayList<User> accountList;
     
     @FXML private Button createAccountButton;
     @FXML private Button goBack;
@@ -35,7 +30,7 @@ public class CreateAccountUIController implements Initializable{
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
     @FXML private Label passwordStatus;
-    
+    private ArrayList<User> accountList;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -58,12 +53,14 @@ public class CreateAccountUIController implements Initializable{
         String password = passwordField.getText();
         
         //adds new account to user directory
-        createNewAccount(username, password, fName, lName);
+        boolean create = createNewAccount(username, password, fName, lName);
         
-        //opens the navigation scene
+        if(create){
+         //opens the navigation scene
         Stage stage = (Stage) createAccountButton.getScene().getWindow();
         stage.hide();
-        NavigationController theNavigationController = NavigationController.getNavigationController(stage);
+        NavigationController theNavigationController = NavigationController.getNavigationController(stage);   
+        }
     }
     
     
@@ -84,9 +81,15 @@ public class CreateAccountUIController implements Initializable{
      * @param fName
      * @param lName 
      */
-    public void createNewAccount(String username, String password, String fName, String lName){
+    public boolean createNewAccount(String username, String password, String fName, String lName){
         User newUser = new User(username, password, fName, lName);
-        saveAccountData(newUser);
+        if(!(username.length()<6  || password.length()<6 || fName.length()==0 || lName.length()==0)){
+            saveAccountData(newUser);
+            return true;
+        }else{
+            System.out.println("There was an error in your login.");
+            return false;
+        }
     }
     
      @FXML
@@ -97,6 +100,7 @@ public class CreateAccountUIController implements Initializable{
         theLoginController = new LoginController(stage);
     }
     
+
    
     public void updatePasswordStatus(String password) {
 
