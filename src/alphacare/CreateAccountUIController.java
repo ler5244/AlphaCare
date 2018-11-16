@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -5,10 +6,16 @@
  */
 package alphacare;
 
+/**
+ *
+ * @author Laura
+ */
 import javafx.event.ActionEvent;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -22,6 +29,7 @@ public class CreateAccountUIController implements Initializable{
     private Stage stage;
     private static NavigationController theNavigationController;
     private LoginController theLoginController;
+    private ArrayList<User> accountList;
     
     @FXML private Button createAccountButton;
     @FXML private Button goBack;
@@ -30,8 +38,15 @@ public class CreateAccountUIController implements Initializable{
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
     @FXML private Label passwordStatus;
-    private ArrayList<User> accountList;
+    @FXML private Label emailError;
+    
+    public static final Pattern VALID_EMAIL_ADDRESS_REGEX = 
+    Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
+    
+    
+    // Method which acts as the constructor for this class
+    // This is called when the class is intitialized
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -52,14 +67,18 @@ public class CreateAccountUIController implements Initializable{
         String username = usernameField.getText();
         String password = passwordField.getText();
         
-        //adds new account to user directory
-        boolean create = createNewAccount(username, password, fName, lName);
-        
-        if(create){
-         //opens the navigation scene
-        Stage stage = (Stage) createAccountButton.getScene().getWindow();
-        stage.hide();
-        NavigationController theNavigationController = NavigationController.getNavigationController(stage);   
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(username);
+        if(matcher.find()) {
+            //adds new account to user directory
+            createNewAccount(username, password, fName, lName);
+
+            //opens the navigation scene
+            Stage stage = (Stage) createAccountButton.getScene().getWindow();
+            stage.hide();
+            NavigationController theNavigationController = NavigationController.getNavigationController(stage);
+        }
+        else {
+            emailError.setText("Invalid Email Format");
         }
     }
     
@@ -81,18 +100,16 @@ public class CreateAccountUIController implements Initializable{
      * @param fName
      * @param lName 
      */
-    public boolean createNewAccount(String username, String password, String fName, String lName){
+    public void createNewAccount(String username, String password, String fName, String lName){
+        
         User newUser = new User(username, password, fName, lName);
-        if(!(username.length()<6  || password.length()<6 || fName.length()==0 || lName.length()==0)){
-            saveAccountData(newUser);
-            return true;
-        }else{
-            System.out.println("There was an error in your login.");
-            return false;
-        }
+        saveAccountData(newUser);
     }
     
-     @FXML
+    /**
+     * An FXML method that gets the LoginController and sets up the login scene
+     */
+    @FXML
     public void getLoginCntl() {
         // create instance of create account controller to load
         // create account UI
@@ -100,8 +117,12 @@ public class CreateAccountUIController implements Initializable{
         theLoginController = new LoginController(stage);
     }
     
-
    
+    /**
+     * Takes the user inputted password from CreateAccountUI and
+     * determines the strength of the password based on their input
+     * @param password 
+     */
     public void updatePasswordStatus(String password) {
 
         if(password.length() == 0) {
@@ -118,5 +139,4 @@ public class CreateAccountUIController implements Initializable{
         }
         
     }
-    
 }

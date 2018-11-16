@@ -22,7 +22,7 @@ public class CreateRecordController {
     * @param symptoms sets the symptoms for the user
     * @param miscInfo sets the miscellaneous information for the user
     */
-    public Record createRecord(String sickness, ArrayList<String> symptoms, String miscInfo){
+    public Record createRecord(String sickness, String symptoms, String miscInfo){
         return new Record(sickness, symptoms, miscInfo);
     }
     

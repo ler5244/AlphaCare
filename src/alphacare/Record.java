@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Record {
     
     private String sickness;
-    private ArrayList<String> symptoms;
+    private String symptoms;
     private String miscInfo;
 
     /**
@@ -27,7 +27,7 @@ public class Record {
     * @param symptoms sets the user's symptoms
     * @param miscInfo sets the user's miscellaneous information
     */
-    public Record(String sickness, ArrayList<String> symptoms, String miscInfo) {
+    public Record(String sickness, String symptoms, String miscInfo) {
         this.sickness = sickness;
         this.symptoms = symptoms;
         this.miscInfo = miscInfo;
@@ -53,7 +53,7 @@ public class Record {
     * Returns the symptoms for a given user
     * @return An ArrayList of symptoms of the user
     */
-    public ArrayList<String> getSymptoms() {
+    public String getSymptoms() {
         return this.symptoms;
     }
 
@@ -61,7 +61,7 @@ public class Record {
     * Sets the symptoms for a given user
     * @param newSymptoms sets the symptoms for the user
     */
-    public void setSymptoms(ArrayList<String> newSymptoms) {
+    public void setSymptoms(String newSymptoms) {
         this.symptoms = newSymptoms;
     }
 

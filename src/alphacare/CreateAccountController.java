@@ -15,7 +15,8 @@ public class CreateAccountController {
         stage = theStage;
         setUpCreateAccountScene();
     }
-
+    
+    // Loads in the new scene for allowing a user to create an account
     public void setUpCreateAccountScene() {
         Parent root;
         Scene scene;
