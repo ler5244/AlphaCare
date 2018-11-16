@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alphacare.NavigationUIController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alphacare.NavigationUIController">
    <children>
       <ImageView fitHeight="406.0" fitWidth="746.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -22,5 +22,6 @@
       <Button layoutX="328.0" layoutY="236.0" mnemonicParsing="false" onAction="#logOut" style="-fx-background-color: black;" text="Log out" textFill="WHITE" />
     <Label layoutX="529.0" layoutY="14.0" text="You are currently logged in" textFill="WHITE" />
       <Button fx:id="createRecord" layoutX="303.0" layoutY="197.0" mnemonicParsing="false" onAction="#loadCreateRecord" style="-fx-background-color: black;" text="Create Record" textFill="WHITE" />
+      <Button fx:id="gotoLogout" onAction="#getLoginCntl" layoutX="328.0" layoutY="236.0" mnemonicParsing="false" style="-fx-background-color: black;" text="Log out" textFill="WHITE" />
    </children>
 </AnchorPane>

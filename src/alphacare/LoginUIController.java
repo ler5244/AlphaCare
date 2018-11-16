@@ -1,8 +1,11 @@
 
 package alphacare;
-
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -11,7 +14,7 @@ import javafx.stage.Stage;
 import javafx.scene.layout.AnchorPane;
 
 
-public class LoginUIController {
+public class LoginUIController implements Initializable{
     
     UserDirectory directory = new UserDirectory();
     private Stage mainStage;
@@ -22,6 +25,7 @@ public class LoginUIController {
     @FXML private Button createAccountButton;
     @FXML private Button loginButton;
     @FXML private Label errorLabel;
+    private ArrayList<User> accountList;
     
     
     /**
@@ -43,8 +47,10 @@ public class LoginUIController {
         
         String username = usernameField.getText();
         String password = passwordField.getText();
+        boolean check = false;
+        check = PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().contains(username,password);
         
-        if (directory.contains(username, password)) {
+        if (check) {
             mainStage = (Stage) loginButton.getScene().getWindow();
             NavigationController.getNavigationController(mainStage);
         }
@@ -53,7 +59,12 @@ public class LoginUIController {
             errorLabel.setText("Invalid credentials, please try again");
         }
     }
-    
+    @Override
+     public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+       accountList = PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().getDirectory();
+       System.out.println(accountList);
+     }
     /*
     When the user clicks on the create account button, it will switch
     scenses and load the create account interface
