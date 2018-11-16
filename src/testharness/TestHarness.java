@@ -1,16 +1,15 @@
 
 package testharness;
 
-import alphacare.CreateAccount;
-import alphacare.CreateAccountController;
+import alphacare.CreateAccountUIController;
 import alphacare.CreateRecordController;
-import alphacare.DoctorPatient;
-import alphacare.MedicalUser;
-import alphacare.PatientUser;
+import alphacare.PersistentDataController;
 import alphacare.Record;
 import alphacare.UpdateRecordController;
 import alphacare.ViewRecordController;
+import alphacare.User;
 import java.util.ArrayList;
+import javafx.stage.Stage;
 
 /**
  *
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 public class TestHarness {
     
     public static void main(String[] args) {
-        testDoctorPatientRemoveUser();
+        testCreateAccountController();
         testViewRecordController();
         testCreateRecordController();
         testupdateRecordController();
@@ -226,13 +225,21 @@ public class TestHarness {
      */
     /*
     public static void testCreateAccountController() {
-        CreateAccountController cntl = new CreateAccountController();
+        Stage stage = new Stage();
+        CreateAccountUIController cntl = new CreateAccountUIController();
 
         //Data for new account
         String testUserName = "Alex5p";
         String testPassWord = "422";
+        User user = new User(testUserName,testPassWord,"","");
 
-        CreateAccount createAccount = cntl.createAccount(testUserName, testPassWord);
+        PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().getDirectory().add(user);
+        PersistentDataController.getPersistentDataCntl().writeJSONDataModel();
+        
+        ArrayList accountList = PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().getDirectory();
+        
+        /*
+        CreateAccount createAccount = cntl.createNewAccount(testUserName, testPassWord, "", "");
 
         //check if account was succesfully created
         if (createAccount != null) {
@@ -240,6 +247,7 @@ public class TestHarness {
         } else {
             System.out.println("Create Account Controller failed to created a new account");
         }
+        */
     }
     */
 

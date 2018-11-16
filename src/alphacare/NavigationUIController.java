@@ -16,6 +16,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+
 /**
  *
  * @author Laura
@@ -40,6 +41,12 @@ public class NavigationUIController implements Initializable{
         // create account UI
         Stage stage = (Stage) gotoLogout.getScene().getWindow();
         theLoginController = new LoginController(stage);
+    }
+    
+    @FXML
+    public void logOut(ActionEvent event) {
+        System.out.println("EXITING");
+        System.exit(0);
     }
     
 }

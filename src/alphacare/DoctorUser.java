@@ -9,14 +9,14 @@ package alphacare;
  *
  * @author ags12
  */
-public class PatientUser extends User {
+public class DoctorUser extends User {
     
     private String username;
     private String password;
     private String firstName;
     private String lastName;
     
-    public PatientUser(String username, String password, String fName, String lName) {
+    public DoctorUser(String username, String password, String fName, String lName) {
         super(username, password, fName, lName);
     }
     

@@ -42,6 +42,11 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <PasswordField fx:id="passwordField" layoutX="455.0" layoutY="193.0" promptText="p@ssword123" />
+      <PasswordField fx:id="passwordField" layoutX="455.0" layoutY="193.0" />
+      <Label fx:id="passwordStatus" layoutX="455.0" layoutY="224.0" prefHeight="21.0" prefWidth="187.0" promptText="p@ssword123">
+         <font>
+            <Font name="Arial" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
