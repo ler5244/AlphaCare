@@ -13,6 +13,8 @@ import javafx.event.ActionEvent;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -35,6 +37,11 @@ public class CreateAccountUIController implements Initializable{
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
     @FXML private Label passwordStatus;
+    @FXML private Label emailError;
+    
+    public static final Pattern VALID_EMAIL_ADDRESS_REGEX = 
+    Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+
     
     
     // Method which acts as the constructor for this class
@@ -59,13 +66,19 @@ public class CreateAccountUIController implements Initializable{
         String username = usernameField.getText();
         String password = passwordField.getText();
         
-        //adds new account to user directory
-        createNewAccount(username, password, fName, lName);
-        
-        //opens the navigation scene
-        Stage stage = (Stage) createAccountButton.getScene().getWindow();
-        stage.hide();
-        NavigationController theNavigationController = NavigationController.getNavigationController(stage);
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(username);
+        if(matcher.find()) {
+            //adds new account to user directory
+            createNewAccount(username, password, fName, lName);
+
+            //opens the navigation scene
+            Stage stage = (Stage) createAccountButton.getScene().getWindow();
+            stage.hide();
+            NavigationController theNavigationController = NavigationController.getNavigationController(stage);
+        }
+        else {
+            emailError.setText("Invalid Email Format");
+        }
     }
     
     
@@ -87,6 +100,7 @@ public class CreateAccountUIController implements Initializable{
      * @param lName 
      */
     public void createNewAccount(String username, String password, String fName, String lName){
+        
         User newUser = new User(username, password, fName, lName);
         saveAccountData(newUser);
     }

@@ -21,7 +21,7 @@ public class ViewRecordController {
      * @param miscInfo
      * @return
      */
-    public Record getRecord(String sickness, ArrayList<String> symptoms, String miscInfo) {
+    public Record getRecord(String sickness, String symptoms, String miscInfo) {
 
         return new Record(sickness, symptoms, miscInfo);
         //To be used when record is being is included.

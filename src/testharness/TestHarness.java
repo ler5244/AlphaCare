@@ -36,9 +36,7 @@ public class TestHarness {
         // data for the new record
         String testSickness = "cold";
         
-        ArrayList<String> testSymptoms = new ArrayList();
-        testSymptoms.add("fever");
-        testSymptoms.add("congestion");
+        String testSymptoms = "Fever, Congestion";
         
         String testMiscInfo = "Having trouble sleeping";
         
@@ -95,9 +93,7 @@ public class TestHarness {
         //data for an updated record
         String testSickness = "hot";
 
-        ArrayList<String> testSymptoms = new ArrayList();
-        testSymptoms.add("fever");
-        testSymptoms.add("congestion");
+        String testSymptoms = "Fever, Congestion";
 
         String testMiscInfo = "Having trouble sleeping";
 
@@ -122,9 +118,7 @@ public class TestHarness {
         // data for the new record
         String testSickness = "cold";
 
-        ArrayList<String> testSymptoms = new ArrayList();
-        testSymptoms.add("fever");
-        testSymptoms.add("congestion");
+        String testSymptoms = "Fever, Congestion";
 
         String testMiscInfo = "Having trouble sleeping";
 
