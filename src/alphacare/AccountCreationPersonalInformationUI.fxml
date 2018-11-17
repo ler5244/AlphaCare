@@ -20,8 +20,8 @@
             <Font size="26.0" />
          </font>
       </Label>
-    <Label layoutX="288.0" layoutY="318.0" text="You are currently logged in" textFill="WHITE" />
-      <Button fx:id="continueToNav" layoutX="556.0" layoutY="344.0" mnemonicParsing="false" onAction="#loadNavigation" style="-fx-background-color: black;" text="Continue" textFill="WHITE" />
+    <Label fx:id="userError" layoutX="171.0" layoutY="318.0" prefHeight="17.0" prefWidth="360.0" textFill="WHITE" />
+      <Button fx:id="continueToNav" layoutX="556.0" layoutY="344.0" mnemonicParsing="false" onAction="#setInformation" style="-fx-background-color: black;" text="Continue" textFill="WHITE" />
       <Label alignment="TOP_RIGHT" layoutX="80.0" layoutY="142.0" prefHeight="17.0" prefWidth="65.0" text="Address 1:">
          <font>
             <Font size="14.0" />
@@ -42,10 +42,10 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="address1" layoutX="164.0" layoutY="140.0" />
-      <TextField fx:id="address2" layoutX="164.0" layoutY="170.0" />
-      <TextField fx:id="state" layoutX="164.0" layoutY="201.0" />
-      <TextField fx:id="zip" layoutX="164.0" layoutY="233.0" />
+      <TextField fx:id="address1" layoutX="164.0" layoutY="140.0" promptText="552 Example Lane" />
+      <TextField fx:id="address2" layoutX="164.0" layoutY="170.0" promptText="Apt. 503, Blding 4" />
+      <TextField fx:id="state" layoutX="164.0" layoutY="201.0" promptText="NY" />
+      <TextField fx:id="zip" layoutX="164.0" layoutY="233.0" promptText="87214" />
       <Label alignment="TOP_RIGHT" layoutX="394.0" layoutY="140.0" prefHeight="20.0" prefWidth="81.0" text="Cell Phone">
          <font>
             <Font size="14.0" />
@@ -56,7 +56,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="cellPhone" layoutX="494.0" layoutY="138.0" />
-      <TextField fx:id="homePhone" layoutX="494.0" layoutY="168.0" />
+      <TextField fx:id="cellPhone" layoutX="494.0" layoutY="138.0" promptText="(#)-###-###-####" />
+      <TextField fx:id="homePhone" layoutX="494.0" layoutY="168.0" promptText="(#)-###-###-####" />
    </children>
 </AnchorPane>
