@@ -11,12 +11,15 @@ package alphacare;
  */
 public class PersistentDataCollection {
     private UserDirectory theUserDirectory;
+    private RecordList theRecordList; 
     
     public PersistentDataCollection(){
         if(theUserDirectory == null){
             theUserDirectory = new UserDirectory();
         }
-        
+        if(theRecordList == null){
+            theRecordList = new RecordList(); 
+        }
     }
     
     /**
@@ -26,4 +29,8 @@ public class PersistentDataCollection {
     public UserDirectory getUserDirectory(){
         return theUserDirectory;
     }
+    public RecordList getRecordList(){
+        return theRecordList; 
+    }
+    
 }

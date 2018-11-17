@@ -6,6 +6,7 @@
 package alphacare;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,7 +24,7 @@ import javafx.stage.Stage;
 public class CreateRecordUIController implements Initializable {
     
     private Stage mainStage;
-    
+    private ArrayList<Record> recordList; 
     @FXML private Button cancel;
     @FXML private Button submit;
     @FXML private TextField sickness;
@@ -37,6 +38,8 @@ public class CreateRecordUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        recordList = PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getRecordList().getRecord();
+        
     }
 
     /**
@@ -62,6 +65,8 @@ public class CreateRecordUIController implements Initializable {
         
         if(!theSickness.isEmpty() && !theSymptoms.isEmpty() && !theMiscInfo.isEmpty()) {
             // submit and persist the data
+            Record record = new Record(theSickness, theSymptoms, theMiscInfo);
+            saveRecordData(record);
             System.out.println("Saving Record");
             
             // load main menu on successful submission
@@ -76,5 +81,8 @@ public class CreateRecordUIController implements Initializable {
         
     }
     
-    
+    public void saveRecordData(Record record){
+        PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getRecordList().getRecord().add(record);
+        PersistentDataController.getPersistentDataCntl().writeJSONDataModel();
+    }
 }
