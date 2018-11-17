@@ -37,8 +37,14 @@ public class CreateAccountUIController implements Initializable{
     @FXML private TextField lastNameField;
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
+    @FXML private PasswordField passwordField1;
     @FXML private Label passwordStatus;
     @FXML private Label emailError;
+    @FXML private Label userStatus;
+    
+    private String passwordValue;
+    private String password2Value;
+    private boolean passwordsMatch = false;
     
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX = 
     Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
@@ -53,6 +59,11 @@ public class CreateAccountUIController implements Initializable{
        accountList = PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().getDirectory();
         passwordField.textProperty().addListener((observable, oldValue, newValue) -> {
             this.updatePasswordStatus(newValue);
+            this.passwordValue = newValue;
+        });
+        passwordField1.textProperty().addListener((observable, oldValue, newValue) -> {
+            this.matchPasswords(newValue);
+            this.password2Value = newValue;
         });
     }
     
@@ -64,13 +75,13 @@ public class CreateAccountUIController implements Initializable{
     @FXML protected void handleCreateAccountButtonAction(ActionEvent event) {
         String fName = firstNameField.getText();
         String lName = lastNameField.getText();
-        String username = usernameField.getText();
+        String email = usernameField.getText();
         String password = passwordField.getText();
         
-        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(username);
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(email);
         if(matcher.find()) {
             //adds new account to user directory
-            createNewAccount(username, password, fName, lName);
+            createNewAccount(email, password, fName, lName);
 
             //opens the navigation scene
             Stage stage = (Stage) createAccountButton.getScene().getWindow();
@@ -100,10 +111,15 @@ public class CreateAccountUIController implements Initializable{
      * @param fName
      * @param lName 
      */
-    public void createNewAccount(String username, String password, String fName, String lName){
-        
+    public boolean createNewAccount(String username, String password, String fName, String lName){
         User newUser = new User(username, password, fName, lName);
-        saveAccountData(newUser);
+        if(!(username.length()<6  || password.length()<6 || fName.length()==0 || lName.length()==0) && passwordsMatch){
+            saveAccountData(newUser);
+            return true;
+        }else{
+            System.out.println("There was an error in your login.");
+            return false;
+        }
     }
     
     /**
@@ -139,4 +155,19 @@ public class CreateAccountUIController implements Initializable{
         }
         
     }
+    
+    /**
+     * This method checks to make sure the two passwords match
+     * @param password2 
+     */
+    public void matchPasswords(String password2){
+        if(passwordValue.equals(password2)){
+            passwordsMatch = true;
+            updatePasswordStatus(password2);
+        }else {
+            passwordsMatch = false;
+            passwordStatus.setText("Passwords do not match.");
+        }
+    }
+    
 }
