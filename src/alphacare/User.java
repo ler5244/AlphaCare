@@ -4,16 +4,18 @@
  * and open the template in the editor.
  */
 package alphacare;
-
 /**
  *
  * @author jdq5016
  */
 public class User {
+
+    
     private String username;
     private String password;
     private String firstName;
     private String lastName;
+    private PersonalInformation myInformation;
     
     /**
      * This is the constructor for the User object class.
@@ -91,6 +93,26 @@ public class User {
     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+    
+    /**
+     * @return the myInformation
+     */
+    public PersonalInformation getMyInformation() {
+        return myInformation;
+    }
+
+    /**
+     * @param myInformation the myInformation to set
+     */
+    public void setMyInformation(PersonalInformation myInformation) {
+        this.myInformation = myInformation;
+    }
+    /**
+     * a print funciton to print the object's values.
+     */
+    public void print(){
+        System.out.println(this.firstName + this.lastName + this.password + this.username + this.myInformation);
     }
     
 }
