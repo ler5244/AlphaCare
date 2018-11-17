@@ -80,12 +80,14 @@ public class CreateAccountUIController implements Initializable{
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(email);
         
         if(matcher.find()) {
-            //adds new account to user directory
+            // reset the email error field
+            emailError.setText("");
             
             boolean userExists = PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().userExists(email);
             
             if(!userExists) {
                 
+                //adds new account to user directory
                 boolean create = createNewAccount(email, password, fName, lName);
 
 
