@@ -92,6 +92,7 @@ public class CreateAccountUIController implements Initializable{
             theAccountCreationPIController = new AccountCreationPIController(stage, currentUser);
             }else{
                 userStatus.setText("Please enter appropriate information.");
+
             }
         }
         else {
@@ -121,6 +122,10 @@ public class CreateAccountUIController implements Initializable{
      */
     public boolean createNewAccount(String username, String password, String fName, String lName){
         User newUser = new User(username, password, fName, lName);
+         if(password.length()<6){
+            System.out.println("Your password does not have enough characters.");
+        }
+        
         if(!(username.length()<6  || password.length()<6 || fName.length()==0 || lName.length()==0) && passwordsMatch){
             //saveAccountData(newUser);
             currentUser = newUser;
