@@ -79,17 +79,30 @@ public class CreateAccountUIController implements Initializable{
         String password = passwordField.getText();
         
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(email);
+        
         if(matcher.find()) {
             //adds new account to user directory
-        boolean create = createNewAccount(email, password, fName, lName);
-        
-            if(create){
-                //opens the navigation scene
-               Stage stage = (Stage) createAccountButton.getScene().getWindow();
-               stage.hide();
-               NavigationController theNavigationController = NavigationController.getNavigationController(stage);   
-            }else{
-                userStatus.setText("The information you entered is not complete.");
+            
+            boolean userExists = PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().userExists(email);
+            
+            if(!userExists) {
+                
+                boolean create = createNewAccount(email, password, fName, lName);
+
+
+                if(create){
+                    //opens the navigation scene
+                   Stage stage = (Stage) createAccountButton.getScene().getWindow();
+                   stage.hide();
+                   NavigationController theNavigationController = NavigationController.getNavigationController(stage);   
+                }else{
+                    userStatus.setText("The information you entered is not complete.");
+                }
+                
+            }
+            
+            else {
+                userStatus.setText("Username is taken");
             }
         }
         else {

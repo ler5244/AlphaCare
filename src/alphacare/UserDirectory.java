@@ -40,6 +40,21 @@ public class UserDirectory {
     }
     
     /**
+     * Check if the user exists in the JSON file
+     * @param username
+     * @return true if the user exists, false otherwise
+     */
+    public boolean userExists(String username) {
+        for(User theUser: directory) {
+            if(theUser.getUsername().equals(username)) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    /**
      * Adds the User newUser to the userDirectory 
      * @param newUser Is the new User object being added to the userDirectory
      */
