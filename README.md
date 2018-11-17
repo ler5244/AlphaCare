@@ -1,5 +1,6 @@
 # Alphacare
 
+
 ## Dependencies Required to Run the Application
 1. This application makes use of the GSON library, which can be found here: https://repo1.maven.org/maven2/com/google/code/gson/gson/2.6.2/
 (gson-2.6.2.jar)
@@ -11,6 +12,7 @@
 4. If "resolve project problems" comes up, click on it and open the window.
 5. Point the missing jar file (gson-2.6.2.jar) to the location of where it was downloaded
 6. Click on resolve
+7. Now that we have persistent data, you can create an account yourself and do not require any prior login credentials. However, inside of the AlphaCareData.json file you can see all of the existing user accounts and records
 
 ## Refactors
 1. We went through every single method in every class and added documentation for them
