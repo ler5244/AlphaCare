@@ -19,7 +19,7 @@
 4. When the user logs in successfully, the NavigationUI.fxml file now has a label on the top informing the user they are loggged in
 5. In the CreateAccountUIController, we added a regex check on the email string to determine if the user inputted email is valid
 6. In the NavigationUIController, the functionality to exit the application from the logout button has been added
-7. 
+7. In the UserDirectory class, there is a method that goes through the list to check if a username already exists for a user creating an account
 8. 
 9. We have added an extra text field to confirm their password and in the CreateAccountUIController, it checks if the passwords match before the account can be created
 10. There is now a field for adding the user's address when they are creating their account  
