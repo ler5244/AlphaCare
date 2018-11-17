@@ -14,12 +14,12 @@
 
 ## Refactors
 1. We went through every single method in every class and added documentation for them
-2. 
+2. We updated each fxml file to allow for responsiveness with respect to window resizing
 3. The README has been updated to include setup instructions along with information regarding the dependencies
 4. When the user logs in successfully, the NavigationUI.fxml file now has a label on the top informing the user they are loggged in
 5. In the CreateAccountUIController, we added a regex check on the email string to determine if the user inputted email is valid
 6. In the NavigationUIController, the functionality to exit the application from the logout button has been added
 7. In the UserDirectory class, there is a method that goes through the list to check if a username already exists for a user creating an account
-8. 
+8. The password field will ensure that the string the user enters is up to par with security standards
 9. We have added an extra text field to confirm their password and in the CreateAccountUIController, it checks if the passwords match before the account can be created
 10. There is now a field for adding the user's address when they are creating their account  
