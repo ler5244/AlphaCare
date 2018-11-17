@@ -81,12 +81,16 @@ public class CreateAccountUIController implements Initializable{
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(email);
         if(matcher.find()) {
             //adds new account to user directory
-            createNewAccount(email, password, fName, lName);
-
-            //opens the navigation scene
-            Stage stage = (Stage) createAccountButton.getScene().getWindow();
-            stage.hide();
-            NavigationController theNavigationController = NavigationController.getNavigationController(stage);
+        boolean create = createNewAccount(email, password, fName, lName);
+        
+            if(create){
+                //opens the navigation scene
+               Stage stage = (Stage) createAccountButton.getScene().getWindow();
+               stage.hide();
+               NavigationController theNavigationController = NavigationController.getNavigationController(stage);   
+            }else{
+                userStatus.setText("The information you entered is not complete.");
+            }
         }
         else {
             emailError.setText("Invalid Email Format");
