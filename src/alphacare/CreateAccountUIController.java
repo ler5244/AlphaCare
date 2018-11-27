@@ -27,6 +27,7 @@ public class CreateAccountUIController implements Initializable{
 
     private Stage stage;
     private static NavigationController theNavigationController;
+    private AccountCreationPIController theAccountCreationPIController;
     private LoginController theLoginController;
     private ArrayList<User> accountList;
     
@@ -44,6 +45,7 @@ public class CreateAccountUIController implements Initializable{
     private String passwordValue;
     private String password2Value;
     private boolean passwordsMatch = false;
+    private User currentUser;
     
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX = 
     Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
@@ -80,30 +82,16 @@ public class CreateAccountUIController implements Initializable{
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(email);
         
         if(matcher.find()) {
-            // reset the email error field
-            emailError.setText("");
-            
-            boolean userExists = PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().userExists(email);
-            
-            if(!userExists) {
-                
-                //adds new account to user directory
-                boolean create = createNewAccount(email, password, fName, lName);
-
-
-                if(create){
-                    //opens the navigation scene
-                   Stage stage = (Stage) createAccountButton.getScene().getWindow();
-                   stage.hide();
-                   NavigationController theNavigationController = NavigationController.getNavigationController(stage);   
-                }else{
-                    userStatus.setText("The information you entered is not complete.");
-                }
-                
-            }
-            
-            else {
-                userStatus.setText("Username is taken");
+             //adds new account to user directory
+            boolean check = createNewAccount(email, password, fName, lName);
+               
+            if(check){
+                //opens the navigation scene
+            Stage stage = (Stage) createAccountButton.getScene().getWindow();
+            stage.hide();
+            theAccountCreationPIController = new AccountCreationPIController(stage, currentUser);
+            }else{
+                userStatus.setText("Please enter appropriate information.");
             }
         }
         else {
@@ -131,8 +119,12 @@ public class CreateAccountUIController implements Initializable{
      */
     public boolean createNewAccount(String username, String password, String fName, String lName){
         User newUser = new User(username, password, fName, lName);
+        if(password.length()<6){
+            System.out.println("Your password does not have enough characters.");
+        }
         if(!(username.length()<6  || password.length()<6 || fName.length()==0 || lName.length()==0) && passwordsMatch){
-            saveAccountData(newUser);
+            //saveAccountData(newUser);
+            currentUser = newUser;
             return true;
         }else{
             System.out.println("There was an error in your login.");
