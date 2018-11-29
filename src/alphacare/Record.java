@@ -12,13 +12,9 @@ public class Record {
     private String sickness;
     private String symptoms;
     private String miscInfo;
+    private String username;
 
-    /**
-    * Default constructor for the Record model class
-    */
-    public Record() {
-
-    }
+  
 
     /**
     * Constructor for the Record model class
@@ -26,11 +22,13 @@ public class Record {
     * @param sickness sets the user's sickness
     * @param symptoms sets the user's symptoms
     * @param miscInfo sets the user's miscellaneous information
+     * @param username
     */
-    public Record(String sickness, String symptoms, String miscInfo) {
+    public Record(String sickness, String symptoms, String miscInfo, String username) {
         this.sickness = sickness;
         this.symptoms = symptoms;
         this.miscInfo = miscInfo;
+        this.username = username;
     }
 
     /**
@@ -79,6 +77,14 @@ public class Record {
     */
     public void setMiscInfo(String newMiscInfo) {
         this.miscInfo = newMiscInfo;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
     
 }

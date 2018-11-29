@@ -46,6 +46,7 @@ public class CreateAccountUIController implements Initializable{
     private String password2Value;
     private boolean passwordsMatch = false;
     private User currentUser;
+    private ArrayList<String> newCurrentUser;
     
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX = 
     Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
@@ -57,7 +58,10 @@ public class CreateAccountUIController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-       accountList = PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().getDirectory();
+        //current user list initialized 
+        newCurrentUser = PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().getCurrentUser();
+        
+        accountList = PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().getDirectory();
         passwordField.textProperty().addListener((observable, oldValue, newValue) -> {
             this.updatePasswordStatus(newValue);
             this.passwordValue = newValue;
@@ -90,6 +94,7 @@ public class CreateAccountUIController implements Initializable{
             Stage stage = (Stage) createAccountButton.getScene().getWindow();
             stage.hide();
             theAccountCreationPIController = new AccountCreationPIController(stage, currentUser);
+            updateCurrentUser(email);
             }else{
                 userStatus.setText("Please enter appropriate information.");
             }
@@ -179,5 +184,10 @@ public class CreateAccountUIController implements Initializable{
             passwordStatus.setText("Passwords do not match.");
         }
     }
-    
+    //updates the current user list 
+    public void updateCurrentUser(String username){
+        PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().getCurrentUser().clear();
+        PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().getCurrentUser().add(username);
+        PersistentDataController.getPersistentDataCntl().writeJSONDataModel();
+    }
 }

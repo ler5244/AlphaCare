@@ -31,6 +31,7 @@ public class CreateRecordUIController implements Initializable {
     @FXML private TextField symptoms;
     @FXML private TextField miscInfo;
     @FXML private Label errorLabel;
+    private ArrayList<String> currentUser;
 
     /**
      * Initializes the controller class.
@@ -39,7 +40,8 @@ public class CreateRecordUIController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         recordList = PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getRecordList().getRecord();
-        
+        currentUser = PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().getCurrentUser();
+
     }
 
     /**
@@ -62,10 +64,11 @@ public class CreateRecordUIController implements Initializable {
         String theSickness = sickness.getText();
         String theSymptoms = symptoms.getText();
         String theMiscInfo = miscInfo.getText();
+        String username = currentUser.get(0);
         
         if(!theSickness.isEmpty() && !theSymptoms.isEmpty() && !theMiscInfo.isEmpty()) {
             // submit and persist the data
-            Record record = new Record(theSickness, theSymptoms, theMiscInfo);
+            Record record = new Record(theSickness, theSymptoms, theMiscInfo, username);
             saveRecordData(record);
             System.out.println("Saving Record");
             

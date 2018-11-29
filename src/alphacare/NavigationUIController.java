@@ -19,8 +19,9 @@ public class NavigationUIController {
     
     private Stage stage;
     private CreateRecordCntl theCreateRecordCntl;
-    
+    private ViewRecordCntl theViewRecordCntl; 
     @FXML private Button createRecord;
+    @FXML private Button viewRecord; 
     
     /**
      * Exits the application
@@ -40,5 +41,11 @@ public class NavigationUIController {
         stage = (Stage) createRecord.getScene().getWindow();
         
         theCreateRecordCntl = new CreateRecordCntl(stage);
+    }
+    @FXML
+    public void loadViewRecord(ActionEvent event) {
+        stage = (Stage) viewRecord.getScene().getWindow();
+        
+        theViewRecordCntl = new ViewRecordCntl(stage);
     }
 }
