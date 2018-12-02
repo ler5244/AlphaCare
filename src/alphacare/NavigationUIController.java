@@ -28,8 +28,10 @@ public class NavigationUIController implements Initializable{
     @FXML private Button createRecord;
     @FXML private Button viewRecord;
     @FXML private Text recordError; 
+    @FXML private Text viewRecordError;
     private ArrayList<String> currentUser;
     private ArrayList<Record> recordList; 
+    private boolean recordExists; 
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -37,6 +39,17 @@ public class NavigationUIController implements Initializable{
         currentUser = PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().getCurrentUser();
         recordList = PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getRecordList().getRecord();
         
+        for(Record r:recordList){
+            if(!currentUser.get(0).equals(r.getUsername())){
+                recordExists = false;
+                 
+            }
+            else{ 
+                recordExists = true;
+                break;
+            }
+        } 
+        System.out.println(recordExists);
     }    
     
     /**
@@ -54,25 +67,22 @@ public class NavigationUIController implements Initializable{
      */
     @FXML
     public void loadCreateRecord(ActionEvent event) {
-        for(Record r:recordList){
-            if(!currentUser.get(0).equals(r.getUsername())){
-                System.out.println("error");
-                recordError.setVisible(true);
-                break;
-            }
-            else{ 
-                stage = (Stage) createRecord.getScene().getWindow();
-                theCreateRecordCntl = new CreateRecordCntl(stage);
-            }
+        if(!recordExists){
+            stage = (Stage) createRecord.getScene().getWindow();
+            theCreateRecordCntl = new CreateRecordCntl(stage);
+        }else{
+            recordError.setVisible(true);
         }
-        
-        
         
     }
     @FXML
-    public void loadViewRecord(ActionEvent event) {
-        stage = (Stage) viewRecord.getScene().getWindow();
+    public void loadViewRecord(ActionEvent event){ 
+        if(recordExists){
+            stage = (Stage) viewRecord.getScene().getWindow();
+            theViewRecordCntl = new ViewRecordCntl(stage);
+        }else{
+            viewRecordError.setVisible(true);
+        }
         
-        theViewRecordCntl = new ViewRecordCntl(stage);
     }
 }

@@ -30,5 +30,10 @@
             <Font size="18.0" />
          </font>
       </Text>
+      <Text fx:id="viewRecordError" fill="WHITE" layoutX="265.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please create a record to view!" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
