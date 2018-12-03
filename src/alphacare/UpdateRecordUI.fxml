@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="alphacare.UpdateRecordUIController">
+   <children>
+      <ImageView fitHeight="406.0" fitWidth="746.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@blue-gradient-background.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="cancelButton" layoutX="236.0" layoutY="318.0" mnemonicParsing="false" onAction="#loadMainMenu" style="-fx-background-color: black;" text="Cancel" textFill="WHITE" />
+      <Button fx:id="updateButton" layoutX="416.0" layoutY="318.0" mnemonicParsing="false" onAction="#updateRecord" style="-fx-background-color: black;" text="Update" textFill="WHITE" />
+      <Label layoutX="201.0" layoutY="167.0" text="Sickness:" />
+      <Label layoutX="201.0" layoutY="211.0" text="Symptoms:" />
+      <Label layoutX="204.0" layoutY="258.0" text="Misc Info:" />
+      <TextField fx:id="sickness" layoutX="298.0" layoutY="162.0" />
+      <TextField fx:id="symptoms" layoutX="298.0" layoutY="206.0" />
+      <TextField fx:id="miscInfo" layoutX="298.0" layoutY="253.0" />
+      <Label layoutX="236.0" layoutY="67.0" text="Update Record">
+         <font>
+            <Font name="Arial" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

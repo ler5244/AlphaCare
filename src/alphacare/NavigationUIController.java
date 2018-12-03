@@ -24,10 +24,12 @@ public class NavigationUIController implements Initializable{
     
     private Stage stage;
     private CreateRecordCntl theCreateRecordCntl;
-    private ViewRecordCntl theViewRecordCntl; 
+    private ViewRecordCntl theViewRecordCntl;
+    private UpdateRecordCntl theUpdateRecordCntl;
     @FXML private Button createRecord;
     @FXML private Button viewRecord;
-    @FXML private Text recordError; 
+    @FXML private Button updateRecord;
+    @FXML private Text recordError;
     @FXML private Text viewRecordError;
     private ArrayList<String> currentUser;
     private ArrayList<Record> recordList; 
@@ -84,5 +86,15 @@ public class NavigationUIController implements Initializable{
             viewRecordError.setVisible(true);
         }
         
+    }
+    
+    @FXML
+    public void loadUpdateRecord(ActionEvent event) {
+        if(recordExists){
+            stage = (Stage) updateRecord.getScene().getWindow();
+            theUpdateRecordCntl = new UpdateRecordCntl(stage);
+        }else{
+            viewRecordError.setVisible(true);
+        }
     }
 }

@@ -43,10 +43,10 @@ public class ViewRecordUICntl implements Initializable {
         
         for(Record r:recordList){
             if(currentUser.get(0).equals(r.getUsername())){
-                nameText.setText(r.getUsername());
-                sicknessText.setText(r.getSickness());
-                symptomsText.setText(r.getSymptoms());
-                miscInfoText.setText(r.getMiscInfo());
+                nameText.setText(" " + r.getUsername());
+                sicknessText.setText("\t" + r.getSickness());
+                symptomsText.setText("\t" + r.getSymptoms());
+                miscInfoText.setText("\t" + r.getMiscInfo());
                 
             }
             else{ 

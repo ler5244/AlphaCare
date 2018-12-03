@@ -47,7 +47,9 @@ public class TestHarness {
         
         String testMiscInfo = "Having trouble sleeping";
         
-        Record testRecord = cntl.createRecord(testSickness, testSymptoms, testMiscInfo);
+        String testUsername = "test@test.com";
+        
+        Record testRecord = cntl.createRecord(testSickness, testSymptoms, testMiscInfo, testUsername);
         
         // check if the record was successfully created
         if(testRecord != null) {
@@ -105,8 +107,10 @@ public class TestHarness {
         String testSymptoms = "Fever, Congestion";
 
         String testMiscInfo = "Having trouble sleeping";
+        
+        String testUsername = "test@test.com";
 
-        Record testRecord = cntl.updateRecord(testSickness, testSymptoms, testMiscInfo);
+        Record testRecord = cntl.updateRecord(testSickness, testSymptoms, testMiscInfo, testUsername);
 
         // check if the record was successfully updated
         if (testRecord != null) {
@@ -130,8 +134,10 @@ public class TestHarness {
         String testSymptoms = "Fever, Congestion";
 
         String testMiscInfo = "Having trouble sleeping";
+        
+        String testUsername = "test@test.com";
 
-        Record testRecord = cntl.getRecord(testSickness, testSymptoms, testMiscInfo);
+        Record testRecord = cntl.getRecord(testSickness, testSymptoms, testMiscInfo, testUsername);
 
         // check if the record is viewed successfully
         if (testRecord != null) {

@@ -24,7 +24,7 @@
       <Button fx:id="loginButton" layoutX="69.0" layoutY="267.0" mnemonicParsing="false" onAction="#authenticate" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: black;" text="Login" textFill="WHITE" />
       <Button fx:id="createAccountButton" layoutX="344.0" layoutY="267.0" mnemonicParsing="false" onAction="#getCreateAccountCntl" style="-fx-background-color: black;" text="Create Account" textFill="WHITE" />
       <TextField fx:id="usernameField" layoutX="187.0" layoutY="131.0" />
-      <Label layoutX="94.0" layoutY="136.0" text="Username:" />
+      <Label layoutX="94.0" layoutY="136.0" text="Email:" />
       <Label layoutX="96.0" layoutY="196.0" text="Password:" />
       <Text layoutX="130.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create an Account or Login">
          <font>

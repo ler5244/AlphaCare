@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="383.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alphacare.ViewRecordUICntl">
+<AnchorPane id="AnchorPane" prefHeight="383.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alphacare.ViewRecordUICntl">
    <children>
       <ImageView fitHeight="410.0" fitWidth="704.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -16,8 +16,8 @@
       </ImageView>
       <Button fx:id="backButton" layoutX="26.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleBackButtonAction" style="-fx-background-color: black;" text="Back" textFill="WHITE" />
       <TextArea fx:id="record" editable="false" layoutX="173.0" layoutY="34.0" prefHeight="335.0" prefWidth="343.0" text="Patient Record" />
-      <Text layoutX="188.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Username:" wrappingWidth="99.00001335144043" />
-      <Text fx:id="nameText" layoutX="291.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NameText" />
+      <Text layoutX="183.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Username:" wrappingWidth="139.00001335144043" />
+      <Text fx:id="nameText" layoutX="352.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NameText" />
       <Text layoutX="188.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sickness:" />
       <Text fx:id="sicknessText" layoutX="242.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SicknessText" />
       <Text layoutX="188.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Symptoms:" />
