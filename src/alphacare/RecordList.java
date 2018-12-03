@@ -17,7 +17,7 @@ public class RecordList {
     public RecordList(){
         record = new ArrayList();
         ArrayList<Record> newRecord = new ArrayList();
-        Record exampleRecord = new Record("sickness","symptoms", "miscInfo");
+        Record exampleRecord = new Record("sickness","symptoms", "miscInfo", "username");
                 
         newRecord.add(exampleRecord);
         record = newRecord; 

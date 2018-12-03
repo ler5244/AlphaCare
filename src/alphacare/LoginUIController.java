@@ -26,7 +26,7 @@ public class LoginUIController implements Initializable{
     @FXML private Button loginButton;
     @FXML private Label errorLabel;
     private ArrayList<User> accountList;
-    
+    private ArrayList<String> currentUser;
     
     /**
      * compares Strings username and password to the usernames and passwords
@@ -35,7 +35,8 @@ public class LoginUIController implements Initializable{
      * combination exists in the UserDirectory.
      */
     public LoginUIController(){
-        
+        currentUser = PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().getCurrentUser();
+
     }
     
     /*
@@ -50,9 +51,11 @@ public class LoginUIController implements Initializable{
         boolean check = false;
         check = PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().contains(username,password);
         
+        
         if (check) {
             mainStage = (Stage) loginButton.getScene().getWindow();
             NavigationController.getNavigationController(mainStage);
+            updateCurrentUser(username);
         }
         
         else {
@@ -75,6 +78,13 @@ public class LoginUIController implements Initializable{
         // create account UI
         mainStage = (Stage) createAccountButton.getScene().getWindow();
         theCreateAccountController = new CreateAccountController(mainStage); 
+    }
+    
+    //updates the current user list 
+    public void updateCurrentUser(String username){
+        PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().getCurrentUser().clear();
+        PersistentDataController.getPersistentDataCntl().getPersistentDataCollection().getUserDirectory().getCurrentUser().add(username);
+        PersistentDataController.getPersistentDataCntl().writeJSONDataModel();
     }
     
     

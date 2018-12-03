@@ -22,7 +22,7 @@ public class NavigationController implements Initializable {
     private Stage stage;
     private static NavigationController theNavigationController;
   
-    private NavigationController(Stage theStage){
+    public NavigationController(Stage theStage){
        
         stage = theStage;
         this.setUpNavigationScene();

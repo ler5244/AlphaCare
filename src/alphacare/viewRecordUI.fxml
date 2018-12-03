@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="383.0" prefWidth="698.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alphacare.ViewRecordUICntl">
+   <children>
+      <ImageView fitHeight="410.0" fitWidth="704.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@blue-gradient-background.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="backButton" layoutX="26.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleBackButtonAction" style="-fx-background-color: black;" text="Back" textFill="WHITE" />
+      <TextArea fx:id="record" editable="false" layoutX="173.0" layoutY="34.0" prefHeight="335.0" prefWidth="343.0" text="Patient Record" />
+      <Text layoutX="188.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Username:" wrappingWidth="99.00001335144043" />
+      <Text fx:id="nameText" layoutX="291.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NameText" />
+      <Text layoutX="188.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sickness:" />
+      <Text fx:id="sicknessText" layoutX="242.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SicknessText" />
+      <Text layoutX="188.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Symptoms:" />
+      <Text fx:id="symptomsText" layoutX="257.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SymptomsText" />
+      <Text layoutX="190.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Misc. Info:" />
+      <Text fx:id="miscInfoText" layoutX="253.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MiscInfoText" />
+   </children>
+</AnchorPane>

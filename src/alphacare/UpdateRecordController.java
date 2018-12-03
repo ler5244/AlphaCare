@@ -23,8 +23,8 @@ public class UpdateRecordController {
      * @param miscInfo sets the miscellaneous information for the user
      * @return 
      */
-    public Record updateRecord(String sickness, String symptoms, String miscInfo) {
-        return new Record(sickness, symptoms, miscInfo);
+    public Record updateRecord(String sickness, String symptoms, String miscInfo, String username) {
+        return new Record(sickness, symptoms, miscInfo, username);
     }
 
 }

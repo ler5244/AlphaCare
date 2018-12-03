@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class UserDirectory {
     
     private ArrayList<User> directory = new ArrayList();
+    private ArrayList<String> currentUser;
     
     public UserDirectory(){
         directory = new ArrayList();
@@ -15,6 +16,7 @@ public class UserDirectory {
         User exampleUser = new User("example","example", "example", "example");
         newDirectory.add(exampleUser);
         directory = newDirectory;
+        currentUser = new ArrayList();
     }
     
     /**
@@ -85,6 +87,14 @@ public class UserDirectory {
      */
     public void setDirectory(ArrayList<User> directory) {
         this.directory = directory;
+    }
+
+    public ArrayList<String> getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(ArrayList<String> currentUser) {
+        this.currentUser = currentUser;
     }
     
 }
